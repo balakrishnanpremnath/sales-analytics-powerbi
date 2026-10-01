@@ -30,8 +30,8 @@ The documented dashboard snapshot reports:
 | KPI | Displayed Value |
 |---|---:|
 | Total Sales | LKR 115.80M |
-| Total Profit | LKR 27.08M |
-| Profit Margin | 23.39% |
+| Gross Profit | LKR 27.08M |
+| Gross Profit Margin | 23.39% |
 | Total Orders | Approximately 3K |
 | Units Sold | Approximately 8K |
 | Total Customers | 349 |
@@ -103,6 +103,15 @@ Explores customer contributions and geographic sales patterns.
 The dashboard supports descriptive analysis. It does not establish
 the causes of sales changes or predict future performance.
 
+## Key Findings
+
+Based on the dataset after removing exact duplicate rows:
+
+- Western Province recorded the highest sales at LKR 34.09M.
+- Electronics was the largest category by sales at LKR 76.25M.
+- The 27-inch Monitor was the highest-selling product by sales
+  value at LKR 22.03M.
+  
 ## Tools and Technologies
 
 | Tool | Purpose |
@@ -282,31 +291,21 @@ unless they are included in the recorded unit costs.
 - KPI values depend on filters and the underlying dataset.
 - Rounded dashboard values may differ slightly from calculations
   using the full underlying numbers.
-- Profit interpretation depends on the source definition.
-- Source documentation and detailed transformation steps remain
-  to be added.
+- Gross profit excludes operating expenses beyond recorded product costs.
+- The original dataset source and license remain unverified.
+- Detailed Power Query transformation steps remain to be documented.
 - The report provides descriptive analysis; forecasting and
   causal analysis are outside its current scope.
 
 ## Planned Improvements
 
-- Document the dataset source, coverage, and row-level structure.
+- Verify the original dataset source and license.
 - Summarize the Power Query cleaning steps.
 - Add a data-model screenshot.
-- Record specific product and regional findings with supporting values.
 - Add year-over-year and month-over-month comparisons.
 - Add target-versus-actual analysis where suitable target data exists.
 - Develop drill-through pages and report tooltips.
   
-## Key Findings
-
-Based on the dataset after removing exact duplicate rows:
-
-- Western Province recorded the highest sales at LKR 34.09M.
-- Electronics was the largest category by sales at LKR 76.25M.
-- The 27-inch Monitor was the highest-selling product by sales
-  value at LKR 22.03M.
-
 These findings describe the supplied practice dataset.
 They do not establish the causes of sales performance.
 ## Author
