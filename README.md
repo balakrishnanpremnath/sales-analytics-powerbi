@@ -306,7 +306,18 @@ unless they are included in the recorded unit costs.
 - Add year-over-year and month-over-month comparisons.
 - Add target-versus-actual analysis where suitable target data exists.
 - Develop drill-through pages and report tooltips.
+  
+## Key Findings
 
+Based on the dataset after removing exact duplicate rows:
+
+- Western Province recorded the highest sales at LKR 34.09M.
+- Electronics was the largest category by sales at LKR 76.25M.
+- The 27-inch Monitor was the highest-selling product by sales
+  value at LKR 22.03M.
+
+These findings describe the supplied practice dataset.
+They do not establish the causes of sales performance.
 ## Author
 
 **Balakrishnan Premnath**  
