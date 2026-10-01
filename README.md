@@ -234,11 +234,46 @@ from the raw data.
 
 ## Dataset
 
-This project uses a downloaded sales dataset for portfolio analysis.
-The original source and licensing details have not yet been verified.
+The workbook is labelled “Sales Analytics Portfolio Dataset” and
+contains sales transactions in a Sri Lankan retail context.
+Its notes describe intentional data-quality issues for Power BI
+and Power Query practice.
 
-The dashboard results describe this dataset and should not be
-interpreted as verified performance figures for a specific business.
+The original creator, download source, and license have not yet
+been verified. The data should not be presented as verified
+transactions from a named business.
+
+| Dataset Detail | Value |
+|---|---|
+| Original transaction rows | 3,000 |
+| Exact duplicate rows | 10 |
+| Rows after removing duplicates | 2,990 |
+| Columns | 19 |
+| Date coverage | 1 January 2024–31 August 2026 |
+| Currency | Sri Lankan Rupees (LKR) |
+| Unique customers | 349 |
+| Unique products | 25 |
+
+### Data Quality
+
+The supplied workbook contains:
+
+- 10 exact duplicate transaction rows.
+- 15 records with missing customer names.
+- City values with capitalization or spacing inconsistencies.
+
+Removing the exact duplicate rows produces totals consistent
+with the documented dashboard KPIs.
+
+### Metric Definitions
+
+- Sales = Quantity × Unit Price × (1 − Discount)
+- Total Cost = Quantity × Unit Cost
+- Gross Profit = Sales − Total Cost
+- Gross Profit Margin = Gross Profit ÷ Sales
+
+Gross profit does not account for other operating expenses
+unless they are included in the recorded unit costs.
 
 ## Skills Demonstrated
 
