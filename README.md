@@ -1,397 +1,274 @@
-# 📊 Sales Analytics Dashboard – Power BI
+# Sales Analytics Dashboard | Power BI
 
-**An interactive end-to-end Sales Analytics Dashboard built using Microsoft Power BI to analyze business performance, profitability, products, customers, regional trends, and time-based sales patterns.**
+An interactive Power BI report for exploring sales, profitability,
+product performance, customer segments, and regional trends.
 
-This project transforms raw sales data into **clear, interactive, and decision-ready business insights** using **Power Query, DAX measures, KPI cards, Top-N analysis, slicers, cross-filtering, and multi-page dashboard navigation**.
+Built using Power Query, DAX measures, KPI cards, interactive slicers,
+and three connected report pages.
 
----
-
-## 📌 Project Overview
-
-The **Sales Analytics Dashboard** was designed to provide a complete view of sales performance across multiple business dimensions.
-
-The dashboard focuses on:
-
-- **Overall sales and profitability**
-- **Product performance**
-- **Customer performance**
-- **Customer segmentation**
-- **Regional and city-level sales**
-- **Monthly sales trends**
-- **Top-performing products and customers**
-- **Interactive filtering and navigation**
-
-The final report contains **three interactive dashboard pages**:
-
-1. **Executive Overview**
-2. **Product Analysis**
-3. **Customer & Regional Analysis**
-
----
-
-# 🖼️ Dashboard Preview
-
-## 1️⃣ Executive Overview
+## Dashboard Preview
 
 ![Executive Overview](screenshots/01_Executive_Overview.png)
 
-The **Executive Overview** page provides a high-level summary of overall business performance.
+## Project Objective
 
-### Key KPIs
+Sales totals alone do not explain which products, customers, or regions
+contribute most to business performance.
 
-- **Total Sales**
-- **Total Profit**
-- **Total Orders**
-- **Units Sold**
-- **Profit Margin**
+This dashboard brings these views together to help users:
 
-### Main Visuals
+- Monitor sales and profit.
+- Compare product revenue and profitability.
+- Explore customer and regional performance.
+- Identify changes in monthly sales.
+- Filter results by year, category, province, and customer segment.
 
-- **Monthly Sales Trend**
-- **Sales by Province**
-- **Sales by Category**
-- **Top 10 Customers by Sales**
-- **Top 10 Products by Sales**
+## Dashboard KPIs
 
-### Interactive Filters
+The documented dashboard snapshot reports:
 
-- **Year**
-- **Province**
-- **Category**
+| KPI | Displayed Value |
+|---|---:|
+| Total Sales | LKR 115.80M |
+| Total Profit | LKR 27.08M |
+| Profit Margin | 23.39% |
+| Total Orders | Approximately 3K |
+| Units Sold | Approximately 8K |
+| Total Customers | 349 |
+| Average Sales per Customer | LKR 331.81K |
 
----
+Values reflect the report's data and filter context. Figures displayed
+in thousands or millions are rounded.
 
-## 2️⃣ Product Analysis
+These are amounts represented in the dataset, not business improvements
+attributed to building the dashboard.
+
+## Report Pages
+
+### 1. Executive Overview
+
+Provides an overall view of sales and profitability.
+
+**Includes:**
+
+- Total sales, profit, orders, units sold, and profit margin
+- Monthly sales trend
+- Sales by province and category
+- Top 10 customers and products by sales
+- Year, province, and category slicers
+
+### 2. Product Analysis
 
 ![Product Analysis](screenshots/02_Product_Analysis.png)
 
-The **Product Analysis** page focuses on product-level sales performance and profitability.
+Explores how products contribute to sales and profit.
 
-### Key KPIs
+**Includes:**
 
-- **Total Sales**
-- **Total Profit**
-- **Units Sold**
-- **Profit Margin**
+- Top 10 products by sales
+- Top 10 products by profit
+- Sales by category
+- Sales-versus-profit comparison
+- Category and year slicers
 
-### Main Visuals
+This page supports comparisons between products with high sales
+and those with high profit.
 
-- **Top 10 Products by Sales**
-- **Top 10 Products by Profit**
-- **Sales by Category**
-- **Sales vs Profit by Product**
+### 3. Customer & Regional Analysis
 
-### Interactive Filters
+![Customer and Regional Analysis](screenshots/03_Customer_Regional_Analysis.png)
 
-- **Category**
-- **Year**
+Explores customer contributions and geographic sales patterns.
 
-This page helps identify products that generate the **highest revenue**, products that generate the **highest profit**, and the relationship between **sales and profitability**.
+**Includes:**
 
----
+- Customer count and average sales per customer
+- Top 10 customers by sales
+- Sales by customer segment
+- Sales by province and city
+- Year, province, and customer-segment slicers
 
-## 3️⃣ Customer & Regional Analysis
+## Interpreting the Results
 
-![Customer & Regional Analysis](screenshots/03_Customer_Regional_Analysis.png)
+- **Profit margin:** The displayed 23.39% means approximately
+  LKR 23.39 of recorded profit per LKR 100 of sales, within the
+  same filter context. Its accounting meaning depends on how the
+  source dataset defines profit.
+- **Average sales per customer:** LKR 331.81K represents total
+  sales divided by distinct customers in the selected context.
+  It is not average order value or customer lifetime value.
+- **Product comparisons:** Sales and profit rankings answer
+  different questions. Review both when assessing product performance.
 
-The **Customer & Regional Analysis** page focuses on customer behaviour and geographical sales performance.
+The dashboard supports descriptive analysis. It does not establish
+the causes of sales changes or predict future performance.
 
-### Key KPIs
+## Tools and Technologies
 
-- **Total Customers**
-- **Total Sales**
-- **Total Profit**
-- **Average Sales per Customer**
+| Tool | Purpose |
+|---|---|
+| Power BI Desktop | Report development and interactive visualization |
+| Power Query | Data preparation and transformation |
+| DAX | KPI calculations and measures |
+| Git and GitHub | Version control and project documentation |
 
-### Main Visuals
+## DAX Measures
 
-- **Top 10 Customers by Sales**
-- **Sales by Customer Segment**
-- **Sales by Province**
-- **Top Cities by Sales**
+The documented measures use the `Raw_Sales_Data` table.
 
-### Interactive Filters
-
-- **Year**
-- **Province**
-- **Customer Segment**
-
-This page helps identify the **most valuable customers**, the strongest **customer segments**, and the best-performing **provinces and cities**.
-
----
-
-# 📈 Key Dashboard Results
-
-| **KPI** | **Result** |
-|---|---:|
-| **Total Sales** | **LKR 115.80M** |
-| **Total Profit** | **LKR 27.08M** |
-| **Profit Margin** | **23.39%** |
-| **Total Orders** | **3K** |
-| **Units Sold** | **8K** |
-| **Total Customers** | **349** |
-| **Average Sales per Customer** | **LKR 331.81K** |
-
-> **Note:** KPI values are based on the current dataset and may change when filters are applied.
-
----
-
-# 🧮 DAX Measures
-
-The dashboard uses custom **DAX measures** to calculate important business KPIs.
-
-## Total Sales
+### Total Sales
 
 ```DAX
 Total Sales =
 SUM(Raw_Sales_Data[Sales (LKR)])
 ```
 
-## Total Profit
+### Total Profit
 
 ```DAX
 Total Profit =
 SUM(Raw_Sales_Data[Profit (LKR)])
 ```
 
-## Total Orders
+### Total Orders
 
 ```DAX
 Total Orders =
 DISTINCTCOUNT(Raw_Sales_Data[Order ID])
 ```
 
-## Units Sold
+Distinct order IDs are counted rather than assuming every data row
+represents a separate order.
+
+### Units Sold
 
 ```DAX
 Units Sold =
 SUM(Raw_Sales_Data[Quantity])
 ```
 
-## Profit Margin
+### Profit Margin
 
 ```DAX
 Profit Margin =
 DIVIDE([Total Profit], [Total Sales], 0)
 ```
 
-## Total Customers
+This calculates the ratio of total profit to total sales in the
+current filter context. Format the measure as a percentage.
+
+### Total Customers
 
 ```DAX
 Total Customers =
 DISTINCTCOUNT(Raw_Sales_Data[Customer ID])
 ```
 
-## Average Sales per Customer
+### Average Sales per Customer
 
 ```DAX
 Average Sales per Customer =
 DIVIDE([Total Sales], [Total Customers], 0)
 ```
 
----
+## Repository Guide
 
-# 🔍 Key Business Insights
+| Path | Contents |
+|---|---|
+| `dashboard/Sales_Analytics_Dashboard.pbix` | Power BI report |
+| `screenshots/01_Executive_Overview.png` | Executive overview preview |
+| `screenshots/02_Product_Analysis.png` | Product analysis preview |
+| `screenshots/03_Customer_Regional_Analysis.png` | Customer and regional preview |
+| `data/` | Location reserved for supporting data files |
+| `README.md` | Project overview and usage instructions |
 
-### Sales Performance
+## How to Explore the Report
 
-- Tracks **total sales** and **monthly sales movement**.
-- Helps identify periods of stronger and weaker sales performance.
-- Supports **year-based filtering** for time comparisons.
+### 1. Download the Repository
 
-### Profitability
+Download the repository ZIP, or clone it:
 
-- Measures **total profit** and **overall profit margin**.
-- Compares product-level sales with product-level profit.
-- Helps identify high-revenue products that also generate strong profit.
-
-### Product Performance
-
-- Ranks the **Top 10 Products by Sales**.
-- Ranks the **Top 10 Products by Profit**.
-- Compares sales performance across **product categories**.
-- Uses a scatter chart to examine the relationship between **sales and profit**.
-
-### Customer Analysis
-
-- Identifies the **Top 10 Customers by Sales**.
-- Measures the number of **unique customers**.
-- Calculates **Average Sales per Customer**.
-- Analyzes customer contribution by **customer segment**.
-
-### Regional Analysis
-
-- Compares sales across **provinces**.
-- Identifies the **top-performing cities**.
-- Allows province-level filtering for deeper analysis.
-
----
-
-# ❓ Business Questions Answered
-
-This dashboard helps answer questions such as:
-
-- **How much total revenue has the business generated?**
-- **How much profit has the business earned?**
-- **What is the overall profit margin?**
-- **How many orders have been placed?**
-- **How many units have been sold?**
-- **How many unique customers are in the dataset?**
-- **What is the average sales value per customer?**
-- **How are sales changing over time?**
-- **Which products generate the highest sales?**
-- **Which products generate the highest profit?**
-- **Which product categories contribute the most revenue?**
-- **Which customers contribute the most sales?**
-- **Which customer segment contributes the most revenue?**
-- **Which provinces perform best?**
-- **Which cities generate the highest sales?**
-- **What is the relationship between product sales and profit?**
-
----
-
-# ✨ Dashboard Features
-
-- **Interactive Power BI dashboard**
-- **Three analytical report pages**
-- **Custom DAX measures**
-- **KPI cards**
-- **Top-N filtering**
-- **Product profitability analysis**
-- **Customer analysis**
-- **Customer segmentation**
-- **Regional analysis**
-- **Monthly trend analysis**
-- **Interactive slicers**
-- **Cross-filtering between visuals**
-- **Page navigation buttons**
-- **Sales vs Profit scatter analysis**
-- **Responsive visual interactions**
-- **Clean and professional report layout**
-
----
-
-# 🛠️ Tools & Technologies
-
-- **Microsoft Power BI Desktop**
-- **Power Query**
-- **DAX**
-- **Data Cleaning**
-- **Data Transformation**
-- **Data Analysis**
-- **Data Visualization**
-- **Git**
-- **GitHub**
-
----
-
-# 📂 Project Structure
-
-```text
-sales-analytics-powerbi/
-│
-├── dashboard/
-│   └── Sales_Analytics_Dashboard.pbix
-│
-├── screenshots/
-│   ├── 01_Executive_Overview.png
-│   ├── 02_Product_Analysis.png
-│   └── 03_Customer_Regional_Analysis.png
-│
-├── data/
-│
-└── README.md
+```bash
+git clone https://github.com/balakrishnanpremnath/sales-analytics-powerbi.git
+cd sales-analytics-powerbi
 ```
 
----
+### 2. Open the Power BI File
 
-# ▶️ How to Use the Dashboard
+Open:
 
-1. **Clone or download** this repository.
-2. Open the `dashboard` folder.
-3. Open **`Sales_Analytics_Dashboard.pbix`** using **Microsoft Power BI Desktop**.
-4. Use the **page navigation buttons** to move between dashboard pages.
-5. Use the available **Year, Province, Category, and Customer Segment slicers** to filter the report.
-6. Click individual charts or data points to **cross-filter other visuals**.
-7. Use the Top-N charts to identify the strongest-performing products, customers, cities, and regions.
+```text
+dashboard/Sales_Analytics_Dashboard.pbix
+```
 
----
+Use Microsoft Power BI Desktop to explore the interactive report.
+The screenshots provide a preview without opening Power BI.
 
-# 🧠 Skills Demonstrated
+### 3. Explore the Pages
 
-This project demonstrates practical skills in:
+- Use page navigation to switch between report sections.
+- Apply the available slicers.
+- Select chart elements to explore cross-filtered results.
+- Clear selections before comparing overall totals.
+- Compare product sales rankings with profit rankings.
 
-- **Business Intelligence**
-- **Power BI dashboard development**
-- **Power Query transformations**
-- **DAX measure creation**
-- **KPI development**
-- **Data visualization**
-- **Interactive report design**
-- **Time-series analysis**
-- **Product analysis**
-- **Customer analytics**
-- **Regional analytics**
-- **Business insight generation**
-- **GitHub project documentation**
+### 4. Refresh Data When Available
 
----
+Refreshing requires access to the original source files or a
+compatible replacement dataset.
 
-# 🔐 Data Privacy
+If the report refers to a local path from another computer, update
+the relevant source connection in Power Query before refreshing.
 
-Before publishing the dataset publicly, ensure that it does not contain **private, confidential, or personally sensitive customer information**.
+Opening a saved report and refreshing its source data are separate
+operations.
 
-If the raw dataset contains sensitive data, keep it out of the public repository and include only the Power BI report, screenshots, and documentation.
+## Data Documentation Status
 
----
+The source provider, exact date coverage, row count, and whether
+the dataset is real or synthetic are not yet documented here.
 
-# 🚀 Future Improvements
+These details should be confirmed before using the report to make
+claims about a real business or attempting to reproduce the analysis
+from the raw data.
 
-Possible future enhancements include:
+## Skills Demonstrated
 
-- **Sales forecasting**
-- **Year-over-year growth analysis**
-- **Month-over-month growth analysis**
-- **Dynamic KPI comparison**
-- **Target vs Actual analysis**
-- **Advanced drill-through pages**
-- **Tooltip pages**
-- **Customer lifetime value analysis**
-- **RFM customer segmentation**
-- **Geographical map visualization**
-- **Automated data refresh**
-- **Power BI Service publishing**
+- Power BI report development
+- Power Query data preparation
+- DAX measure creation
+- KPI definition and interpretation
+- Product and customer analysis
+- Regional sales analysis
+- Interactive filtering and report navigation
+- Data visualization and documentation
 
----
+## Limitations
 
-# 👨‍💻 Author
+- KPI values depend on filters and the underlying dataset.
+- Rounded dashboard values may differ slightly from calculations
+  using the full underlying numbers.
+- Profit interpretation depends on the source definition.
+- Source documentation and detailed transformation steps remain
+  to be added.
+- The report provides descriptive analysis; forecasting and
+  causal analysis are outside its current scope.
 
-**Balakrishnan Premnath**
+## Planned Improvements
 
-**BSc (Hons) in Data Science**  
-**Sri Lanka Technology Campus (SLTC)**
+- Document the dataset source, coverage, and row-level structure.
+- Summarize the Power Query cleaning steps.
+- Add a data-model screenshot.
+- Record specific product and regional findings with supporting values.
+- Add year-over-year and month-over-month comparisons.
+- Add target-versus-actual analysis where suitable target data exists.
+- Develop drill-through pages and report tooltips.
 
-**Focus Areas:** Data Analytics, Machine Learning, Artificial Intelligence, Data Visualization, and Business Intelligence.
+## Author
 
----
+**Balakrishnan Premnath**  
+BSc (Hons) in Data Science  
+Sri Lanka Technology Campus (SLTC)
 
-# ✅ Project Status
-
-**Completed**
-
-The dashboard includes:
-
-- **Executive Overview**
-- **Product Analysis**
-- **Customer & Regional Analysis**
-- **Interactive slicers**
-- **Custom DAX measures**
-- **Page navigation**
-- **Top-N analysis**
-- **Product, customer, and regional insights**
-
----
-
-## ⭐ If you find this project useful
-
-Feel free to **star the repository** and explore the dashboard screenshots and Power BI report.
+[GitHub](https://github.com/balakrishnanpremnath) |
+[LinkedIn](https://www.linkedin.com/in/balakrishnan-premnath)
