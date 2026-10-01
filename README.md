@@ -223,15 +223,6 @@ the relevant source connection in Power Query before refreshing.
 Opening a saved report and refreshing its source data are separate
 operations.
 
-## Data Documentation Status
-
-The source provider, exact date coverage, row count, and whether
-the dataset is real or synthetic are not yet documented here.
-
-These details should be confirmed before using the report to make
-claims about a real business or attempting to reproduce the analysis
-from the raw data.
-
 ## Dataset
 
 The workbook is labelled “Sales Analytics Portfolio Dataset” and
