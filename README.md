@@ -232,6 +232,14 @@ These details should be confirmed before using the report to make
 claims about a real business or attempting to reproduce the analysis
 from the raw data.
 
+## Dataset
+
+This project uses a downloaded sales dataset for portfolio analysis.
+The original source and licensing details have not yet been verified.
+
+The dashboard results describe this dataset and should not be
+interpreted as verified performance figures for a specific business.
+
 ## Skills Demonstrated
 
 - Power BI report development
